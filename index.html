@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HealthSync - 华为运动健康数据本地同步工具</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;max-width:760px;margin:0 auto;padding:48px 24px;line-height:1.85;color:#222;background:#fff}
+h1{font-size:30px;border-bottom:2px solid #eee;padding-bottom:14px}
+h2{font-size:19px;margin-top:34px;color:#111}
+table{border-collapse:collapse;width:100%;margin:18px 0;font-size:15px}
+th,td{border:1px solid #ddd;padding:10px 12px;text-align:left}
+th{background:#f6f6f6}
+a{color:#0969da}
+.tag{display:inline-block;background:#eef6ff;color:#0969da;border-radius:20px;padding:4px 14px;font-size:13px;margin-right:8px}
+.box{background:#fafafa;border-left:4px solid #ccc;padding:14px 18px;margin:18px 0;color:#555}
+</style>
+</head>
+<body>
+
+<h1>HealthSync</h1>
+<p><span class="tag">HarmonyOS</span><span class="tag">Health Service Kit</span><span class="tag">Local-only</span><span class="tag">No subscription</span></p>
+
+<p><strong>华为运动健康数据本地同步工具</strong> —— 把手表/手环/手机上的睡眠、心率、步数等个人健康数据，读取并归档到你自己电脑的本地 CSV 文件。</p>
+
+<div class="box">
+<strong>一句话</strong><br>
+数据从华为平台 → 你的手机 → 你的电脑，<strong>全程本地，零第三方，零云端</strong>。想删就删。
+</div>
+
+<h2>文档</h2>
+<table>
+<tr><th>文档</th><th>链接</th></tr>
+<tr><td>隐私政策 / Privacy Policy</td><td><a href="privacy.html">privacy.html</a></td></tr>
+<tr><td>用户协议 / Terms of Service</td><td><a href="terms.html">terms.html</a></td></tr>
+</table>
+
+<h2>数据流向</h2>
+<pre>华为手表 / 手环 / 手机
+      ↓ 自动同步
+华为运动健康平台（华为账号体系内）
+      ↓ 应用在用户授权后读取
+用户的手机（HarmonyOS 应用）
+      ↓ 局域网 HTTP POST（仅限同一局域网）
+用户的电脑本地磁盘
+      ↓
+CSV 文件归档（按日期分文件）</pre>
+
+<h2>核心特性</h2>
+<ul>
+<li><strong>本地优先</strong>：接收服务用 Node.js 内置 <code>http</code> 模块，零第三方依赖</li>
+<li><strong>数据明文可携带</strong>：归档为 CSV，随时可读、可删、可迁移</li>
+<li><strong>按需授权</strong>：仅读取用户明确勾选的数据类型，权限粒度由用户控制</li>
+<li><strong>批量回填</strong>：单次查询跨度 ≤ 31 天，历史数据按月循环拉取</li>
+<li><strong>非医疗用途</strong>：所有输出仅供个人参考</li>
+</ul>
+
+<h2>仓库</h2>
+<p><a href="https://github.com/demonhuntr/health-sync">https://github.com/demonhuntr/health-sync</a></p>
+
+<div style="margin-top:48px;padding-top:16px;border-top:1px solid #eee;color:#888;font-size:13px">
+HealthSync · 个人自用工具 · 最后更新 2026-10-23
+</div>
+
+</body>
+</html>

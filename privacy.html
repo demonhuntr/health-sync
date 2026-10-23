@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>隐私政策 - HealthSync</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;max-width:760px;margin:0 auto;padding:40px 24px;line-height:1.85;color:#222;background:#fff}
+h1{font-size:26px;border-bottom:2px solid #eee;padding-bottom:12px}
+h2{font-size:19px;margin-top:34px;color:#111}
+h3{font-size:16px;margin-top:22px;color:#333}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:14px}
+th,td{border:1px solid #ddd;padding:8px 10px;text-align:left}
+th{background:#f6f6f6}
+blockquote{border-left:4px solid #ccc;background:#fafafa;padding:12px 16px;margin:18px 0;color:#555}
+code{background:#f4f4f4;padding:2px 6px;border-radius:3px;font-size:13px}
+pre{background:#f7f7f7;border:1px solid #e5e5e5;border-radius:4px;padding:12px 14px;overflow-x:auto;font-size:13px;line-height:1.6}
+ul{padding-left:22px}
+.last-update{color:#888;font-size:13px}
+.footer{margin-top:48px;padding-top:16px;border-top:1px solid #eee;color:#888;font-size:13px}
+</style>
+</head>
+<body>
+
+<h1>隐私政策 / Privacy Policy</h1>
+<p class="last-update">最后更新 / Last Updated: 2026-10-23</p>
+<p><strong>适用应用 / Applicable App: HealthSync（华为运动健康数据本地同步工具）</strong></p>
+
+<h2>1. 概述 / Overview</h2>
+<p>本应用（"HealthSync"）是个人开发者自用的工具，用于将您在华为运动健康平台上的个人健康数据（睡眠、心率、步数等）读取并归档到您自己的电脑本地存储。</p>
+<p><strong>我们不收集、不上传、不存储、不共享您的任何健康数据。</strong></p>
+<p>This app is a personal, self-use tool that reads your personal health data from Huawei Health Kit and archives it to your own computer's local storage. <strong>We do not collect, upload, store, or share any of your health data.</strong></p>
+
+<h2>2. 数据采集范围 / Data Scope</h2>
+<p>本应用仅在您<strong>明确授权</strong>后，读取您在华为运动健康 App 中主动记录的数据类型：</p>
+<table>
+<tr><th>数据类型</th><th>用途</th></tr>
+<tr><td>夜间睡眠</td><td>睡眠质量趋势分析（个人参考）</td></tr>
+<tr><td>动态心率 / 静息心率</td><td>心率趋势分析</td></tr>
+<tr><td>日常活动（步数、距离、热量）</td><td>活动量统计</td></tr>
+<tr><td>锻炼记录</td><td>运动记录归档</td></tr>
+<tr><td>压力</td><td>压力趋势参考</td></tr>
+<tr><td>血氧</td><td>基础健康参考</td></tr>
+</table>
+<p><strong>读取方式</strong>：单次查询跨度不超过 31 天，长期历史数据按月分批拉取。</p>
+
+<h2>3. 数据存储与流转 / Data Storage and Transmission</h2>
+
+<h3>3.1 数据流向</h3>
+<pre>华为手表 / 手环 / 手机
+      ↓ 自动同步
+华为运动健康平台（华为账号体系内）
+      ↓ 应用在您授权后读取
+您的手机（HarmonyOS 应用）
+      ↓ 局域网 HTTP POST（仅限同一局域网）
+您的电脑本地磁盘
+      ↓
+CSV 文件归档（按日期分文件）</pre>
+<p><strong>关键点</strong>：</p>
+<ul>
+<li>数据<strong>仅在同一局域网内</strong>通过 HTTP POST 传输，不经过任何第三方服务器</li>
+<li>应用<strong>不包含任何云端服务代码</strong>，不向互联网发送数据</li>
+<li>数据最终落地为<strong>您电脑上的 CSV 文件</strong>，格式为明文，位置由您自己指定</li>
+</ul>
+
+<h3>3.2 数据位置</h3>
+<pre>&lt;您指定的工作目录&gt;/memory/health-data/
+  ├── raw-YYYY-MM-DD.csv        # 原始健康数据
+  ├── daily-sleep-YYYY-MM.csv   # 按天睡眠汇总
+  └── daily-activity-YYYY-MM.csv # 按天活动汇总</pre>
+
+<h3>3.3 网络行为说明</h3>
+<p>本应用仅发起<strong>出站</strong>请求（上传数据至您的电脑）。<strong>本应用不包含任何第三方 SDK、广告、统计或追踪代码。</strong></p>
+
+<h2>4. 数据安全 / Data Security</h2>
+<ul>
+<li>数据以<strong>明文 CSV</strong> 形式存储在您自己的电脑上，安全性等同于您的其他本地文件</li>
+<li>传输使用局域网 HTTP。如需加密，可在接收端自行启用 HTTPS</li>
+<li>建议对归档目录设置访问权限；如同保护其他个人数据一样保护这些文件</li>
+<li>卸载应用或删除归档文件即可完全清除数据</li>
+</ul>
+
+<h2>5. 权限与授权 / Permissions and Authorization</h2>
+<ul>
+<li>本应用使用华为 <strong>Health Service Kit（运动健康服务）</strong>，需在 AppGallery Connect 申请并获得审批</li>
+<li>首次运行时，应用会引导您完成<strong>华为账号登录</strong>与<strong>数据授权</strong>，您可选择授权的数据类型</li>
+<li>授权粒度由您控制：华为侧可随时撤销授权</li>
+<li>应用仅申请以下权限：<code>ohos.permission.INTERNET</code>（用于局域网数据上传）、Health Service Kit 的健康数据读取权限</li>
+</ul>
+
+<h2>6. 第三方服务 / Third-Party Services</h2>
+<p>本应用<strong>不集成</strong>任何第三方分析、广告、推送或云端 AI 服务。</p>
+<p>唯一的第三方交互是<strong>华为运动健康平台本身</strong>（您授权的数据来源）与<strong>您的电脑</strong>（数据接收端）。</p>
+
+<h2>7. 儿童隐私 / Children's Privacy</h2>
+<p>本应用为个人自用工具，<strong>不面向 13 岁以下儿童</strong>，也不会主动收集儿童的个人信息。</p>
+
+<h2>8. 政策变更 / Changes to This Policy</h2>
+<p>本政策如有更新，将在仓库提交记录中注明。由于本应用为个人自用工具，更新通常仅涉及文字澄清，不涉及数据处理方式的根本改变。</p>
+
+<h2>9. 联系方式 / Contact</h2>
+<ul>
+<li><strong>Email</strong>: [在此填写您的邮箱]</li>
+<li><strong>Source code</strong>: <a href="https://github.com/demonhuntr/health-sync">https://github.com/demonhuntr/health-sync</a></li>
+</ul>
+
+<h2>10. 一句话总结 / Summary</h2>
+<blockquote>
+您的健康数据从华为平台 → 您的手机 → 您的电脑，<strong>全程本地，零第三方，零云端</strong>。<br>
+想删就删——删掉电脑上的 CSV 文件，数据就没了。
+</blockquote>
+
+<div class="footer">
+本政策由开发者本人编写并维护。<br>
+HealthSync · Personal self-use tool · <a href="terms.html">用户协议 / Terms of Service</a>
+</div>
+
+</body>
+</html>
